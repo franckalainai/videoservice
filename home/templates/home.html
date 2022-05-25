@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block start %}
+
+    <div class="container mt-4">
+        <div class="row">
+            {% for c in courses %}
+            <div class="col-lg-4">
+                <div class="card shadow">
+                    <img src="{{ c.course_image.url }}" class="card-img-top">
+                    <div class="card-body">
+                        {% if c.is_premium %}
+                        <a href="" class="btn btn-success">Premium</a>
+                        {% else %}
+                        <a href="" class="btn btn-danger">Free</a>
+                        {% endif %}
+                        <h5>{{ c.course_name }}</h5>
+                        <p>{{ c.course_description|safe }}</p>
+                        <a href="{% url 'course' c.slug %}" class="btn btn-primary">View Course</a>
+                    </div>          
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
