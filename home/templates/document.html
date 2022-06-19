@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block start %}
+
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+
+            <section class="peulis-promo-package-area section_70" >
+                <div class="container">
+        
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-3" style="margin-left: -15px; margin-top: 20px;">
+                        <input type="text" name="search" value="" id="id_search" placeholder="Filtre ..." autofocus class="form-control" />
+                        </div>
+                        <br>
+                        <table class="table table-striped" border=2>
+                            <thead>
+                                <th>#</th>
+                                <th>Nom document</th>
+                                <th>Type</th>
+                                <th>Source</th>
+                                <th></th>
+                            </thead>
+                            {% for d in documents %}
+                            <tr border=2>
+                                <td>1</td>
+                                <td><i class="fa fa-file" style="color:#E38A15;"></i> <b><a href="dcollect/documents/628e4c7387051.pdf" title="Consulter" download="SE-CONNAPE__628e4c7387051.pdf" >
+                                    {{ d.document_name }}</a></b></td>
+                                <td>{{ d.type_document }}</td>
+                                <td>{{ d.document_description|safe }}</td>
+                                
+                                <td>
+                                    <span class="btn btn-warning">
+                                            {% if request.session.profile %}
+                                            <a target="_blank" href="dcollect/documents/628e4c7387051.pdf" title="Consulter" style="color:#000;"  download="SE-CONNAPE__628e4c7387051.pdf" >
+                                                <i class="fa fa-check-circle" style="color:green;"></i> Consulter
+                                            </a>
+                                            {% else %}
+                                            <a target="_blank" href="{% url 'become_pro' %}" title="Consulter" style="color:#000;" >
+                                                <i class="fa fa-check-circle" style="color:green;"></i> Abonnez-vous
+                                            </a>
+                                            {% endif %}
+                                        </a> 
+                                    </span>
+                                </td>
+                            </tr> 
+                            {% endfor %}  
+                        </table>
+                    </div>
+                </div>
+        
+                </div>
+            </section>         
+
+
+            
+        </div>
+    </div>
+
+{% endblock %}
