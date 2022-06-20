@@ -1,5 +1,3 @@
-from tkinter import CASCADE
-from tkinter.messagebox import RETRY
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
