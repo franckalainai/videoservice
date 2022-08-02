@@ -85,3 +85,6 @@ def vaccin(request):
         'myFilter': myFilter
     }
     return render(request, 'accounts/dashboard/sante/vaccin.html', context)
+
+def charts(request):
+    return render(request, 'accounts/dashboard/sante/charts.html')

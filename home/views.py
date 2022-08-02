@@ -11,6 +11,16 @@ from django.contrib.auth.decorators import login_required
 def accueil(request):
     return render(request, 'accueil.html')
 
+def formules(request):
+    return render(request, 'formules.html')
+
+def presentation(request):
+    return render(request, 'presentation.html')
+
+
+def secteurs(request):
+    return render(request, 'secteurs.html')
+
 def document(request):
     documents = Document.objects.all()
     context = {

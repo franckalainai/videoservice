@@ -2,6 +2,9 @@ from django.urls import path, include
 from . import views
 urlpatterns = [
     path('', views.accueil, name='accueil'),
+    path('formules/', views.formules, name='formules'),
+    path('presentation/', views.presentation, name='presentation'),
+    path('secteurs/', views.secteurs, name='secteurs'),
     path('document/', views.document, name='document'),
     path('document/<slug>/', views.view_document, name='document'),
     path('become_pro/', views.become_pro, name='become_pro'),

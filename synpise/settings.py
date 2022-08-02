@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'videoservice.urls'
+ROOT_URLCONF = 'synpise.urls'
 
 TEMPLATES = [
     {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'videoservice.wsgi.application'
+WSGI_APPLICATION = 'synpise.wsgi.application'
 
 
 # Database
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'videoservice.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE'  : 'django.db.backends.mysql', # <-- UPDATED line 
-        'NAME'    : 'synpise',                 # <-- UPDATED line 
+        'NAME'    : 'synpise_data',                 # <-- UPDATED line 
         'USER'    : 'root',                     # <-- UPDATED line
         'PASSWORD': '',              # <-- UPDATED line
         'HOST'    : '127.0.0.1',                # <-- UPDATED line
@@ -129,7 +129,7 @@ import os
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
-    'videoservice/static',
+    'synpise/static',
     ]
 
 #media files configuration
