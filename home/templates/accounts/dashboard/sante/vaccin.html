@@ -1,0 +1,97 @@
+{% extends 'accounts/dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<div class="full_container">
+    <div class="inner_container">
+       <!-- Sidebar  -->
+       {% include 'accounts/dashboard/navbar.html' %}
+       <!-- end sidebar -->
+       <!-- right content -->
+       <div id="content">
+          <!-- topbar -->
+          {% include 'accounts/dashboard/topbar.html' %}
+          <!-- end topbar -->
+          <!-- dashboard inner -->
+          <div class="midde_cont">
+             <div class="container-fluid">
+                <div class="row column_title">
+                   <div class="col-md-12">
+                      <div class="page_title">
+                         <h2>Tableau de bord</h2>
+                      </div>
+                   </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <div class="card card-body">
+                            <form method="get">
+                                {{ myFilter.form }}
+                            <button class="btn btn-primary" type="submit">Rechercher</button>
+                        </form>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br>
+                <div class="row column1">
+                    <div class="col-md">
+                        <div class="card card-body">
+                            <table class="table table-sm">
+                                <tr>
+                                    <th>Actes</th>
+                                    <th>Pourcentages</th>
+                                    <th>Années</th>
+                                </tr>
+                                {% for d in donnees %}
+                                    <tr>
+                                        <td>{{ d.acte }}</td>
+                                        <td>{{ d.pourcentage }}</td>
+                                        <td>{{ d.annee }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                
+                            {% if donnees.has_other_pages %}
+                                <ul class="pagination">
+                            {% if donnees.has_previous %}
+                                <li><a href="?page={{ donnees.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                                <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in donnees.paginator.page_range %}
+                                {% if donnees.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span> 
+                            .     </span></li>
+                            {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                            {% if donnees.has_next %}
+                            <li><a href="?page={{ donnees.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                <li class="disabled"><span>&raquo;</span></li>
+                                {% endif %}
+                            </ul>
+                            {% endif %}
+                
+                        </div>
+                    </div>
+                </div>
+               
+                <br><br><br><br><br><br><br><br>
+             </div>
+             <!-- footer -->
+             <div class="container-fluid">
+                <div class="footer">
+                    <br>
+                   <p>Copyright © 2022 - SyNPISE. Version 1.0</p>
+                </div>
+             </div>
+          </div>
+          <!-- end dashboard inner -->
+       </div>
+    </div>
+ </div>
+
+{% endblock %}

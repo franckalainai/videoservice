@@ -1,9 +1,10 @@
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 
-
+from django.conf import settings
+User = settings.AUTH_USER_MODEL
 # Create your models here.
 SUBSCRIPTON = (
     ('F', 'FREE'),

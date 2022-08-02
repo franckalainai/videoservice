@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'home',
     'ckeditor',
     'accounts',
+    'widget_tweaks',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -78,8 +80,12 @@ WSGI_APPLICATION = 'videoservice.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE'  : 'django.db.backends.mysql', # <-- UPDATED line 
+        'NAME'    : 'synpise',                 # <-- UPDATED line 
+        'USER'    : 'root',                     # <-- UPDATED line
+        'PASSWORD': '',              # <-- UPDATED line
+        'HOST'    : '127.0.0.1',                # <-- UPDATED line
+        'PORT'    : '3360',
     }
 }
 
@@ -134,6 +140,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 #STRIPE_SECRET_KEY = 'pk_test_LRn5N1h64fTyTD5xQtOA9ZQU00Z5mQf8ir'
 #STRIPE_PUBLISHABLE_KEY = 'pk_test_LRn5N1h64fTyTD5xQtOA9ZQU00Z5mQf8ir'
+
+AUTH_USER_MODEL = 'accounts.User'

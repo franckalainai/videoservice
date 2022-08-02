@@ -1,0 +1,90 @@
+{% extends 'accounts/dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<div class="full_container">
+    <div class="inner_container">
+       <!-- Sidebar  -->
+       {% include 'accounts/dashboard/navbar.html' %}
+       <!-- end sidebar -->
+       <!-- right content -->
+       <div id="content">
+          <!-- topbar -->
+          {% include 'accounts/dashboard/topbar.html' %}
+          <!-- end topbar -->
+          <!-- dashboard inner -->
+          <div class="midde_cont">
+             <div class="container-fluid">
+                <div class="row column_title">
+                   <div class="col-md-12">
+                      <div class="page_title">
+                         <h2>Tableau de bord</h2>
+                      </div>
+                   </div>
+                </div>
+                <div class="row column1">
+                   <div class="col-md-4 col-lg-4">
+                      <div class="full counter_section margin_bottom_30">
+                         <div class="couter_icon">
+                            <div> 
+                               <i class="fa fa-stethoscope yellow_color"></i>
+                            </div>
+                         </div>
+                         <div class="counter_no">
+                            <div>
+                              <a href="{% url 'vaccin' %}">
+                               <p class="total_no">Source MSHP</p>
+                               <p class="head_couter">Taux de couverture vaccinale et accouchement national</p>
+                               <br>
+                              </a>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-4 col-lg-4">
+                      <div class="full counter_section margin_bottom_30">
+                         <div class="couter_icon">
+                            <div>
+                              <i class="fa fa-building blue1_color"></i>
+                            </div>
+                         </div>
+                         <div class="counter_no">
+                            <div>
+                               <p class="total_no">Source MSHP</p>
+                               <p class="head_couter">Evaluation des infrastructures santé</p>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-4 col-lg-4">
+                      <div class="full counter_section margin_bottom_30">
+                         <div class="couter_icon">
+                            <div> 
+                               <i class="fa fa-user-md green_color"></i>
+                            </div>
+                         </div>
+                         <div class="counter_no">
+                            <div>
+                               <p class="total_no">Source MSHP</p>
+                               <p class="head_couter">Evaluation du personnel de santé</p>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+               
+                <br><br><br><br><br><br><br><br>
+             </div>
+             <!-- footer -->
+             <div class="container-fluid">
+                <div class="footer">
+                    <br>
+                   <p>Copyright © 2022 - SyNPISE. Version 1.0</p>
+                </div>
+             </div>
+          </div>
+          <!-- end dashboard inner -->
+       </div>
+    </div>
+ </div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'accounts/login/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="full_container">
+    <div class="container">
+       <div class="center verticle_center full_height">
+          <div class="login_section">
+             <div class="logo_login">
+                <div class="center">
+                   <img width="210" src="{% static 'accounts/images/logo/logo.png' %}" alt="#" />
+                </div>
+             </div>
+             <div class="login_form">
+                <form action="{% url 'login_' %}" method="POST">
+                    {% csrf_token %}
+                   <fieldset>
+                      {% for field in form.visible_fields %}
+                      <div class="field">
+                        {{ field.label_tag }}
+                        {% render_field field class="form-control" %}
+                            {% if messages%}
+                                {% for message in messages %}
+                                <span style="color:red">{{ message }}</span>
+                                {% endfor %}
+                            {% endif %}
+                      </div>
+                      {% endfor %}
+                      <div class="field">
+                         <label class="label_field hidden">hidden label</label>
+                         <label class="form-check-label"><input type="checkbox" class="form-check-input"> Remember Me</label>
+                      </div>
+                      <div class="field margin_0">
+                         <label class="label_field hidden">hidden label</label>
+                         <button type="submit" value="Login" class="main_bt">Sing In</button>
+                      </div>
+                   </fieldset>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+{% endblock %}
